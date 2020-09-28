@@ -1,0 +1,10 @@
+body {
+	margin: 0;
+	font-family: "Roboto", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+}
+
+.container {
+	background-image: url('https://i.annihil.us/u/prod/marvel/html_pages_assets/marvel-unlimited-sellpage/prod/masthead-bg-desktop.e85140c2.jpg');
+	background-size: cover;
+}

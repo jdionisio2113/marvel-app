@@ -1,9 +1,30 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	overflow-x: hidden;
+	line-height: 1.4;
+}
+
 body {
 	margin: 0;
 	font-family: "Roboto", "Trebuchet MS", Helvetica, Arial, sans-serif;
 	font-weight: normal;
-	/* background-color: #1a1a1a; */
+	background-color: #1a1a1a;
+}
+
+footer {
+	text-align: center;
+}
+
+.footer-container {
+	color: grey;
 	background-color: #000;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 .backdrop_container {
@@ -11,28 +32,26 @@ body {
 }
 
 .marvel-logo {
-	width: 130px;
+	width: 100px;
 }
 
 .landing-navbar {
 	display: flex;
 	justify-content: space-between;
-	padding: .5em 7em;
+	padding: .7em 1.5em;
 	align-items: center;
 	background-color: black;
 }
 
 .marvel-backdrop {
 	width: 100%;
-	opacity: .7;
-	position: relative;
 	border-bottom: 2px solid grey;
 }
 
 .register-link {
 	color: white;
 	text-decoration: none;
-	font-size: 2em;
+	font-size: 1.5em;
 	padding: 5px 20px;
 	border-radius: 2px;
 	background-color: rgb(61, 118, 243);
@@ -41,20 +60,16 @@ body {
 .login-link {
 	color: #f8f8ff;
 	text-decoration: none;
-	font-size: 1.7em;
+	font-size: 1.2em;
 }
 
 .sign-in-container {
 	display: flex;
 	justify-content: space-evenly;
-	position: absolute;
-	bottom: 50%;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	left: 0;
-	right: 0;
-	margin: auto;
-	max-width: 800px;
+	max-width: 300px;
 	-webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
 	-moz-animation: fadein 3s; /* Firefox < 16 */
 	-ms-animation: fadein 3s; /* Internet Explorer */
@@ -113,12 +128,12 @@ body {
 
 .sign-in-container h1 {
 	color: #f8f8ff;
-	font-size: 2em;
+	font-size: 1.3em;
 }
 
 .sign-in-container span {
 	color: #f8f8ff;
-	font-size: 1.3em;
+	font-size: 1em;
 	margin: .6em 0;
 }
 
@@ -126,10 +141,108 @@ body {
 	margin-top: 2em;
 }
 
-.about_section {
-	margin: 2em;
+.captain_america,
+.hulk,
+.hulk-mobile {
+	margin: 0 auto;
+	width: 250px;
+	height: 330px;
+	box-shadow: 10px 10px 8px #000;
 }
 
-.captain_america {
-	width: 300px;
+.hulk {
+	display: none;
+}
+
+.about_section {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 2px solid grey;
+	padding: 3.5em 0;
+}
+
+.about_overview {
+	/* max-width: 500px; */
+	margin: 0 1.4em;
+	text-align: center;
+}
+
+.about_section h3 {
+	color: #f8f8ff;
+	font-size: 3em;
+}
+
+.about_section p {
+	color: #f8f8ff;
+	font-size: 1.3em;
+}
+
+@media screen and (min-width: 1100px) {
+	.marvel-logo {
+		width: 130px;
+	}
+
+	.landing-navbar {
+		background-color: black;
+		padding: 1em 6em;
+	}
+
+	.login-link {
+		font-size: 1.7em;
+	}
+
+	.marvel-backdrop {
+		opacity: .7;
+		position: relative;
+		width: 100%;
+	}
+
+	.sign-in-container {
+		max-width: 800px;
+		position: absolute;
+		bottom: 50%;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+
+	.sign-in-container h1 {
+		font-size: 2em;
+	}
+
+	.sign-in-container span {
+		font-size: 1.3em;
+	}
+
+	.register-link {
+		font-size: 2em;
+	}
+
+	.captain_america,
+	.hulk {
+		width: 300px;
+		height: 400px;
+		margin: 0;
+	}
+
+	.hulk {
+		display: block;
+	}
+
+	.hulk-mobile {
+		display: none;
+	}
+
+	.about_section {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		border-bottom: 2px solid grey;
+		margin: 0 auto;
+	}
+
+	.about_overview {
+		max-width: 500px;
+		margin: 0;
+	}
 }

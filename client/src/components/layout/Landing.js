@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import marvel_backdrop from '../../images/marvel-backdrop.jpg';
 import marvel_logo from '../../images/marvel-logo.png';
 import captain_america from '../../images/captain_america.jpg';
+import hulk from '../../images/hulk.jpg';
 
 class Landing extends Component {
 	render() {
@@ -31,10 +32,25 @@ class Landing extends Component {
 						</div>
 					</div>
 				</div>
-				{/* <div className="about_section">
+				<div className="about_section">
 					<img className="captain_america" src={captain_america} />
-					
-				</div> */}
+					<div className="about_overview">
+						<h3>Read anywhere</h3>
+						<p>
+							Read unlimited comics and learn about your favorite heroes on your phone, tablet, and laptop
+						</p>
+					</div>
+				</div>
+				<div className="about_section">
+					<div className="about_overview">
+						<img className="hulk-mobile" src={hulk} />
+						<h3>Read anywhere</h3>
+						<p>
+							Read unlimited comics and learn about your favorite heroes on your phone, tablet, and laptop
+						</p>
+					</div>
+					<img className="hulk" src={hulk} />
+				</div>
 			</div>
 		);
 	}

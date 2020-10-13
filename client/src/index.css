@@ -30,6 +30,7 @@ body {
 
 .backdrop_container {
 	text-align: center;
+	position: relative;
 }
 
 .marvel-logo {
@@ -258,7 +259,7 @@ input {
 	.sign-in-container {
 		max-width: 800px;
 		position: absolute;
-		bottom: 50%;
+		bottom: 35%;
 		left: 0;
 		right: 0;
 		margin: auto;

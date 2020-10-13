@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authActions';
+import classnames from 'classnames';
 
 class Login extends Component {
 	constructor() {
@@ -11,9 +14,22 @@ class Login extends Component {
 			errors: {}
 		};
 	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.auth.isAuthenticated) {
+			this.props.history.push('/dashboard'); // push user to dashboard when they login
+		}
+		if (nextProps.errors) {
+			this.setState({
+				errors: nextProps.errors
+			});
+		}
+	}
+
 	onChange = (e) => {
 		this.setState({ [e.target.id]: e.target.value });
 	};
+
 	onSubmit = (e) => {
 		e.preventDefault();
 		const userData = {
@@ -21,7 +37,10 @@ class Login extends Component {
 			password: this.state.password
 		};
 		console.log(userData);
+
+		this.props.loginUser(userData);
 	};
+
 	render() {
 		const { errors } = this.state;
 		return (
@@ -73,4 +92,8 @@ class Login extends Component {
 		);
 	}
 }
-export default Login;
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+	errors: state.errors
+});
+export default connect(mapStateToProps, { loginUser })(Login);

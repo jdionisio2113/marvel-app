@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import { registerUser } from '../../actions/authActions';
 
 class Register extends Component {
 	constructor() {
@@ -13,9 +15,19 @@ class Register extends Component {
 			errors: {}
 		};
 	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.errors) {
+			this.setState({
+				errors: nextProps.errors
+			});
+		}
+	}
+
 	onChange = (e) => {
 		this.setState({ [e.target.id]: e.target.value });
 	};
+
 	onSubmit = (e) => {
 		e.preventDefault();
 		const newUser = {
@@ -24,8 +36,9 @@ class Register extends Component {
 			password: this.state.password,
 			password2: this.state.password2
 		};
-		console.log(newUser);
+		this.props.registerUser(newUser, this.props.history);
 	};
+
 	render() {
 		const { errors } = this.state;
 		return (
@@ -100,4 +113,12 @@ class Register extends Component {
 		);
 	}
 }
-export default Register;
+
+export default connect(mapStateToProps, { registerUser })(withRouter(Register));
+
+function mapStateToProps(state) {
+	return {
+		auth: state.auth,
+		errors: state.errors
+	};
+}

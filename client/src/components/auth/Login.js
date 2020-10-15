@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
-import classnames from 'classnames';
 
 class Login extends Component {
 	constructor() {
@@ -23,6 +22,13 @@ class Login extends Component {
 			this.setState({
 				errors: nextProps.errors
 			});
+		}
+	}
+
+	componentDidMount() {
+		// If logged in and user navigates to Login page, should redirect them to dashboard
+		if (this.props.auth.isAuthenticated) {
+			this.props.history.push('/dashboard');
 		}
 	}
 
@@ -52,7 +58,7 @@ class Login extends Component {
 					<div className="login-overview">
 						<h1>Login below</h1>
 						<p>
-							Don't have an account?{' '}
+							Don't have an account?
 							<Link to="/register" className="login-to-register">
 								Register
 							</Link>

@@ -349,4 +349,11 @@ input {
 	.register-overview p {
 		font-size: 1.3em;
 	}
+
+	/* ==========Dashboard.js========== */
+
+	.comic-thumbnail {
+		width: 350px;
+		height: 435px;
+	}
 }

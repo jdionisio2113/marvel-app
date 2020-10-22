@@ -4,7 +4,7 @@
 
 html,
 body {
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 	line-height: 1.4;
 	height: 100%;
 }
@@ -59,10 +59,17 @@ body {
 	background-color: rgb(61, 118, 243);
 }
 
-.login-link {
+.login-link,
+.logout-link {
 	color: #f8f8ff;
 	text-decoration: none;
 	font-size: 1.2em;
+}
+
+.logout-link {
+	background: none;
+	outline: none;
+	border: none;
 }
 
 .sign-in-container {
@@ -236,6 +243,16 @@ input {
 	box-shadow: 10px 10px 8px #000;
 }
 
+/* ==========Dashboard.js========== */
+
+.dashboard-navbar h4 {
+	color: white;
+}
+
+.navbar-overview {
+	display: flex;
+}
+
 @media screen and (min-width: 1100px) {
 	.marvel-logo {
 		width: 130px;
@@ -246,7 +263,8 @@ input {
 		padding: 1em 6em;
 	}
 
-	.login-link {
+	.login-link,
+	.logout-link {
 		font-size: 1.7em;
 	}
 
@@ -353,7 +371,54 @@ input {
 	/* ==========Dashboard.js========== */
 
 	.comic-thumbnail {
-		width: 350px;
-		height: 435px;
+		width: 224px;
+		height: 336px;
+		box-shadow: 10px 10px 8px #000;
+	}
+
+	.thumbnail-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 1340px;
+		margin: 0 auto;
+	}
+
+	.dashboard-navbar {
+		display: flex;
+		justify-content: space-between;
+		padding: 1em 6em;
+		background-color: black;
+	}
+
+	.nav-layout {
+		color: #f8f8ff;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		text-decoration: none;
+	}
+
+	.nav-layout li {
+		text-decoration: none;
+		margin: 0;
+	}
+
+	.comic-thumbnail-wrapper {
+		/* text-align: center; */
+		margin: 1.2em;
+		width: 224px;
+		text-decoration: none;
+	}
+
+	.comic-thumbnail-wrapper:hover {
+		transition: all 0.2s ease-in-out;
+		transform: scale(1.1);
+	}
+
+	.comic-title {
+		font-size: 1em;
+		margin: .5em 0;
+		color: #f8f8ff;
 	}
 }

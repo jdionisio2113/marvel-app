@@ -8,20 +8,21 @@ class ComicsHeader extends Component {
 		return (
 			<div>
 				<div className="thumbnail-container">
-					{this.props.comics.comicData.map((res) => {
-						var thumbnail = `${res.thumbnail.path}/portrait_uncanny.jpg`;
-						// var x;
-						// res.creators.items.map((creator) => {
-						// 	// console.log(creator);
-						// 	// x = creator.name;
-						// });
-						// console.log(x);
-						console.log(res);
+					{this.props.comics.comicData.map((comic) => {
+						var thumbnail = `${comic.thumbnail.path}/portrait_uncanny.jpg`;
+
+						if (thumbnail.includes('image_not_available')) {
+							return null;
+						}
+
 						return (
-							<Link to={`/dashboard/comic/${res.title}`} className="comic-thumbnail-wrapper" key={res.id}>
+							<Link
+								to={`/dashboard/comic/${comic.title}`}
+								className="comic-thumbnail-wrapper"
+								key={comic.id}
+							>
 								<img className="comic-thumbnail" src={thumbnail} />
-								<h5 className="comic-title">{res.title}</h5>
-								{/* <p>{x}</p> */}
+								<h5 className="comic-title">{comic.title}</h5>
 							</Link>
 						);
 					})}

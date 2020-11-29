@@ -34,11 +34,30 @@ class ComicOverview extends Component {
 
 					if (comic.title === decodedComicName) {
 						console.log(comic);
+						// var date = comic.dates[0].date;
+						// var date = new Date(comic.dates[0].date);
+						// date.getDate();
+						// console.log(date);
 						return (
-							<div>
+							<div className="comic-overview-container" key={comic.id}>
 								<img src={thumbnail} />
-								<h1>{comic.title}</h1>
-								<p>{comic.description}</p>
+								<div className="comic-overview">
+									<h1>{comic.title}</h1>
+									<div>
+										{/* <h3>Published: {date}</h3> */}
+										<div className="comic-creators-container">
+											<h3>Creators:</h3>
+											{comic.creators.items.map((creator) => {
+												return (
+													// <div className="comic-creators" key={creator.name}>
+													<span>{creator.name} </span>
+													// </div>
+												);
+											})}
+										</div>
+									</div>
+									<p>{comic.description}</p>
+								</div>
 							</div>
 						);
 					}
